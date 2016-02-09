@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>{{title}}</title>
+    </head>
+
+    <body>
+			<h1>Add an advert to {{title}}</h1>
+			<ul>
+				<li><a href="/">Home</a></li>
+			</ul>
+			<br>
+
+      <form method="POST" action="/submit-advert/">
+        <p>Name <input name="name"/></p>
+        <p>Description <textarea name="description"></textarea></p>
+        <p>Address <input name="address"/></p>
+        <p> City
+          <select name="city_uuid">
+            {% for city in cities %}
+            <option value={{city['uuid']}}>{{city['name']}}</option>
+            {% endfor %}
+          </select>
+        </p>
+        <p><button type="submit">Submit advert</button></p>
+      </form>
+	</body>
+</html>

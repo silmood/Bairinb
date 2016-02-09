@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>{{title}}</title>
+    </head>
+
+    <body>
+			<h1>{{title}}</h1>
+			<ul>
+        <li><a href="/">Home</a></li>
+				<li><a href="/add-listing">Add an advert</a></li>
+			</ul>
+			<br>
+			<h3>Current Adverts</h3>
+        <ul>
+            {% for advert in adverts %}
+            <li><a href="/advert/{{advert['uuid']}}">{{advert['name']}}</a></li>
+            {% endfor %}
+        </ul>
+	</body>
+</html>

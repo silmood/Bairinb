@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+        <title>{{title}}</title>
+    </head>
+
+    <body>
+			<h1>{{title}}</h1>
+			<ul>
+        <li><a href="/">Home</a></li>
+				<li><a href="/add-listing">Add an advert</a></li>
+			</ul>
+			<br>
+			<h3>{{advert.name}}</h3>
+        <ul>
+            <li> Address: {{advert.address}}</li>
+            <li>
+              <form method="POST" action="/advert/{{advert.uuid}}/description">
+              Description: <textarea name="description">{{advert.description}}</textarea> <br>
+                <button type="submit">Edit description</button>
+              </form>
+            </li>
+            <li> City: {{city.name}} </li>
+        </ul>
+
+        <form method="POST" action="/advert/{{advert.uuid}}/delete">
+          <button type="submit">Delete advert</button>
+        </form>
+	</body>
+</html>
