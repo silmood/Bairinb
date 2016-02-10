@@ -1,2 +1,7 @@
+# modules and dependencies
 node_modules/
+
+# auto-save files
+*~
+
 .DS_Store
