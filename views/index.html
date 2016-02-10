@@ -1,20 +1,20 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-        <title>{{title}}</title>
-    </head>
+<head>
+	<title>{{title}}</title>
+</head>
 
-    <body>
-			<h1>{{title}}</h1>
-			<ul>
-				<li><a href="/add-listing">Add an advert</a></li>
-			</ul>
-			<br>
-			<h3>Cities</h3>
-        <ul>
-            {% for city in cities %}
-            <li><a href="/city/{{city.uuid}}">{{city['name']}}</a></li>
-            {% endfor %}
-        </ul>
+	<body>
+		<h1>{{title}}</h1>
+		<ul>
+			<li><a href="/add-listing">Add an advert</a></li>
+		</ul>
+		<br>
+		<h3>Cities</h3>
+        	<ul>
+            	{% for city in cities %}
+            		<li><a href="/city/{{city.uuid}}">{{city['name']}}</a></li>
+            	{% endfor %}
+        	</ul>
 	</body>
 </html>
