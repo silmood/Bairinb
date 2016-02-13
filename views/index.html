@@ -5,9 +5,12 @@
     </head>
 
     <body>
-			<h1>{{title}}</h1>
+			<h1>Welcome to {{title}}</h1>
+			{% if user %}
+			<h2>Hello {{user.username}}</h2>
 			<ul>
 				<li><a href="/add-listing">Add an advert</a></li>
+				<li><a href="/log-out">Log out</a></li>
 			</ul>
 			<br>
 			<h3>Cities</h3>
@@ -16,5 +19,12 @@
             <li><a href="/city/{{city.uuid}}">{{city['name']}}</a></li>
             {% endfor %}
         </ul>
+			{% else %}
+			<p>Sign up or log in to add listings</p>
+			<ul>
+				<li><a href="/sign-up">Sign up</a></li>
+				<li><a href="/log-in">Log in</a></li>
+			</ul>
+			{% endif %}
 	</body>
 </html>
