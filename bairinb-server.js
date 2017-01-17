@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express')
 var swig = require('swig')
 var mongoose = require('mongoose')
@@ -5,6 +7,7 @@ var bodyParser = require('body-parser')
 var uuid = require('uuid')
 var bcrypt = require('bcrypt-nodejs')
 var Schema = mongoose.Schema
+var path = require('path')
 
 var session = require('express-session')
 var MongoStore = require('express-session-mongo')
@@ -14,7 +17,7 @@ var app = express()
 
 app.engine('html', swig.renderFile)
 app.set('view engine', 'html')
-app.set('views', __dirname + '/views')
+app.set('views', path.join(__dirname, 'views'))
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(session({
 	secret: 'keyboard cat',
@@ -70,7 +73,6 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', function(request, response){
-
   City.find({}, function (err, docs){
     if(err){
       return response.send(500, 'Internal Server Error')
